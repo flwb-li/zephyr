@@ -1,0 +1,6 @@
+board:
+  name: rak3162
+  full_name: RAK3162
+  vendor: rakwireless
+  socs:
+  - name: nrf54l15
