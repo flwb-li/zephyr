@@ -139,6 +139,10 @@ New Boards
 
   * :zephyr:board:`Arduino Nesso N1 <arduino_nesso_n1>` (``arduino_nesso_n1``)
 
+* RAKwireless Technology Limited
+
+  * :zephyr:board:`RAK3362 WisBlock Core Module <rak3362>` (``rak3362``)
+
 * Seeed
 
   * :zephyr:board:`Seeed Wio Tracker L1 <wio_tracker_l1>` (``wio_tracker_l1``)

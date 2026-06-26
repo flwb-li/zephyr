@@ -78,6 +78,8 @@ Boards
   to 300 MHz, which also affects the bus and kernel clocks, resulting in slightly
   higher frequencies.
 
+* ``rak3162`` has been renamed to :zephyr:board:`rak3362` (WisBlock Core Module).
+
 Device Drivers and Devicetree
 *****************************
 

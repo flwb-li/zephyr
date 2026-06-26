@@ -24,6 +24,7 @@ REDIRECTS = (
     ('boards/rak/rak11720/doc/index', 'boards/rakwireless/rak11720/doc/index'),
     ('boards/rak/rak4631/doc/index', 'boards/rakwireless/rak4631/doc/index'),
     ('boards/rak/rak5010/doc/index', 'boards/rakwireless/rak5010/doc/index'),
+    ('boards/rakwireless/rak3162/doc/index', 'boards/rakwireless/rak3362/doc/index'),
     ('connectivity/bluetooth/api/att', 'services/connectivity/bluetooth/api/att'),
     ('connectivity/bluetooth/api/audio/audio', 'services/connectivity/bluetooth/api/audio/audio'),
     ('connectivity/bluetooth/api/audio/bap', 'services/connectivity/bluetooth/api/audio/bap'),

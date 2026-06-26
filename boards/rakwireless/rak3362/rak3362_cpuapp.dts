@@ -4,19 +4,17 @@
  */
 
 /dts-v1/;
-#include <nordic/nrf54l15_cpuapp.dtsi>
-#include "rak3162_common.dtsi"
+#include <rakwireless/rak3162.dtsi>
+#include "rak3362-pinctrl.dtsi"
 
 / {
-	model = "RAK Wireless RAK3162";
-	compatible = "rakwireless,rak3162_nrf54l15-cpuapp";
+	model = "RAK3362 WisBlock Core Module";
+	compatible = "rakwireless,rak3362";
 
 	chosen {
 		zephyr,code-partition = &slot0_partition;
-		zephyr,sram         = &cpuapp_sram;
-		zephyr,flash        = &cpuapp_rram;
-		zephyr,console      = &uart20;
-		zephyr,shell-uart   = &uart20;
+		zephyr,sram = &cpuapp_sram;
+		zephyr,flash = &cpuapp_rram;
 	};
 
 	/*
@@ -98,6 +96,65 @@
 
 &adc {
 	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	channel@0 {
+		reg = <0>;
+		zephyr,gain = "ADC_GAIN_1_4";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,input-positive = <NRF_SAADC_AIN0>;
+		zephyr,resolution = <12>;
+	};
+
+	channel@1 {
+		reg = <1>;
+		zephyr,gain = "ADC_GAIN_1_4";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,input-positive = <NRF_SAADC_AIN1>;
+		zephyr,resolution = <12>;
+	};
+
+	channel@2 {
+		reg = <2>;
+		zephyr,gain = "ADC_GAIN_1_4";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,input-positive = <NRF_SAADC_AIN2>;
+		zephyr,resolution = <12>;
+	};
+
+	channel@3 {
+		reg = <3>;
+		zephyr,gain = "ADC_GAIN_1_4";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,input-positive = <NRF_SAADC_AIN3>;
+		zephyr,resolution = <12>;
+	};
+};
+
+&pwm20 {
+	status = "okay";
+	pinctrl-0 = <&pwm20_default>;
+	pinctrl-1 = <&pwm20_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&pwm21 {
+	status = "okay";
+	pinctrl-0 = <&pwm21_default>;
+	pinctrl-1 = <&pwm21_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&pwm22 {
+	status = "okay";
+	pinctrl-0 = <&pwm22_default>;
+	pinctrl-1 = <&pwm22_sleep>;
+	pinctrl-names = "default", "sleep";
 };
 
 &regulators {
@@ -123,6 +180,10 @@
 &lfxo {
 	load-capacitors = "internal";
 	load-capacitance-femtofarad = <16000>;
+	status = "okay";
+};
+
+&lora {
 	status = "okay";
 };
 
@@ -153,3 +214,5 @@
 		};
 	};
 };
+
+#include "wisblock.dtsi"
