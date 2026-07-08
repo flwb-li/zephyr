@@ -81,9 +81,9 @@
 	};
 };
 
-wisblock_console: &uart21 {};
+wisblock_console: &uart20 {};
 
-wisblock_uart0: &uart21 {};
-wisblock_uart1: &uart20 {};
+wisblock_uart0: &uart20 {};
+wisblock_uart1: &uart21 {};
 wisblock_i2c1: &i2c30 {};
 wisblock_spi: &spi00 {};

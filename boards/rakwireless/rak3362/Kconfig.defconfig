@@ -9,6 +9,15 @@ config HAS_BT_CTLR
 config ROM_START_OFFSET
 	default 0x800 if BOOTLOADER_MCUBOOT
 
+# board.c uses pinctrl_update_states() only when PWM is enabled
+config PINCTRL_DYNAMIC
+	default y
+	depends on PWM
+
+config PINCTRL_KEEP_SLEEP_STATE
+	default y
+	depends on PINCTRL_DYNAMIC
+
 endif # BOARD_RAK3362_NRF54L15_CPUAPP
 
 if BOARD_RAK3362
