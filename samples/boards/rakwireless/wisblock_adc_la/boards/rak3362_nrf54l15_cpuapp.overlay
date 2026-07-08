@@ -1,0 +1,13 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ * Copyright (c) 2026 RAKwireless Technology Limited
+ */
+
+#include <zephyr/dt-bindings/adc/wisblock-adc.h>
+
+/ {
+	zephyr,user {
+		io-channels = <&wisblock_adc WISBLOCK_ADC_AIN0>,
+			      <&wisblock_adc WISBLOCK_ADC_AIN1>;
+	};
+};

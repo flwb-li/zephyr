@@ -1,0 +1,32 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ * Copyright (c) 2026 RAKwireless Technology Limited
+ */
+
+#include <zephyr/dt-bindings/pwm/wisblock-pwm.h>
+#include <zephyr/dt-bindings/gpio/wisblock-io-slot.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+	aliases {
+		pwm-led0 = &pwm_la_io1;
+		test-io1 = &la_io1;
+	};
+
+	io_gpios {
+		compatible = "gpio-leds";
+
+		la_io1: io1 {
+			gpios = <&wisblock_io WISBLOCK_IO_IO1 GPIO_ACTIVE_HIGH>;
+		};
+	};
+
+	pwm_leds {
+		compatible = "pwm-leds";
+
+		pwm_la_io1: pwm_led_0 {
+			/* 200 Hz, 50 % duty — easy to see on a logic analyzer */
+			pwms = <&wisblock_pwm WISBLOCK_PWM_IO1 PWM_USEC(5000) PWM_POLARITY_NORMAL>;
+		};
+	};
+};
